@@ -1,7 +1,7 @@
-package com.josh.post.domain.dto;
+package com.josh.post.dto;
 
-import com.josh.post.domain.entity.Post;
-import com.josh.post.domain.entity.Users;
+import com.josh.post.entity.Post;
+import com.josh.post.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

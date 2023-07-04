@@ -1,4 +1,10 @@
+server:
+  port: 9002
+
 spring:
+  application:
+    name: post-service
+
   h2:
     console:
       enabled: true
@@ -17,3 +23,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka

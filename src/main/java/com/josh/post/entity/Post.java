@@ -1,4 +1,4 @@
-package com.josh.post.domain.entity;
+package com.josh.post.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

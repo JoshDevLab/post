@@ -1,14 +1,14 @@
-package com.josh.post.domain.service;
+package com.josh.post.service;
 
-import com.josh.post.domain.dto.PostDto;
-import com.josh.post.domain.entity.Post;
-import com.josh.post.domain.repository.PostRepository;
+import com.josh.post.domain.PostDomain;
+import com.josh.post.dto.PostDto;
+import com.josh.post.entity.Post;
+import com.josh.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -20,9 +20,8 @@ public class PostService {
     /**
      * 게시판 등록 메서드
       */
-    public PostDto registerBoard(PostDto postDto) {
-        Post savePost = postRepository.save(postDto.toEntity());
-        return new PostDto(savePost);
+    public Post registerBoard(PostDto postDto) {
+        return postRepository.save(postDto.toEntity());
     }
 
     /**
@@ -30,6 +29,9 @@ public class PostService {
      */
     public List<PostDto> getPosts() {
         List<Post> posts = postRepository.findAll();
-        return posts.stream().map(PostDto::new).collect(Collectors.toList());
+        PostDomain postDomain = new PostDomain();
+        return postDomain.getCollect(posts);
     }
+
+
 }
